@@ -15,6 +15,23 @@ const fadeUp = {
 export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // yaha apna email send logic daalo
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // demo delay
+      alert("Message Sent Successfully 🚀");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send ❌");
+    }
+
+    setLoading(false);
+  };
 
   return (
     <main className="relative bg-[#0b1120] text-white overflow-x-hidden overflow-y-hidden">
@@ -33,15 +50,17 @@ export default function App() {
 
           {/* DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-gray-300">
-            {["about", "features", "services", "partners", "contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                className="hover:text-green-400 transition capitalize"
-              >
-                {item}
-              </a>
-            ))}
+            {["about", "features", "services", "partners", "contact"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  className="hover:text-green-400 transition capitalize"
+                >
+                  {item}
+                </a>
+              ),
+            )}
 
             <button
               onClick={() => setShowModal(true)}
@@ -67,16 +86,18 @@ export default function App() {
         {/* MOBILE DROPDOWN */}
         {mobileOpen && (
           <div className="md:hidden w-full bg-black border-t border-white/10 px-6 py-6 space-y-6 text-center">
-            {["about", "features", "services", "partners", "contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                onClick={() => setMobileOpen(false)}
-                className="block text-lg capitalize hover:text-green-400"
-              >
-                {item}
-              </a>
-            ))}
+            {["about", "features", "services", "partners", "contact"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-lg capitalize hover:text-green-400"
+                >
+                  {item}
+                </a>
+              ),
+            )}
 
             <button
               onClick={() => {
@@ -128,7 +149,7 @@ export default function App() {
             advisory, mandi intelligence and service providers.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -138,7 +159,7 @@ export default function App() {
             <button className="px-10 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full font-semibold shadow-xl hover:scale-105 transition">
               Get Started
             </button>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -521,8 +542,8 @@ export default function App() {
 
             <div className="space-y-4 text-gray-300">
               <p>📍 India</p>
-              <p>📧 contact@agrigati.com</p>
-              <p>📞 +91 9XXXXXXXXX</p>
+              <p>📧 ceo@agrigati.com</p>
+              <p>📞 +91 9990296759</p>
             </div>
           </div>
 
@@ -531,27 +552,58 @@ export default function App() {
             {/* Glow Border */}
             <div className="absolute inset-0 rounded-3xl border border-transparent hover:border-green-400/40 transition duration-500 shadow-[0_0_60px_rgba(34,197,94,0.4)] pointer-events-none" />
 
-            <div className="space-y-6 relative z-10">
+            <form
+              action="https://formsubmit.co/ceo@agrigati.com"
+              method="POST"
+              className="space-y-6 relative z-10"
+              onSubmit={handleSubmit}
+            >
               <input
-                className="w-full p-4 rounded-xl bg-black/40 border border-white/10 focus:border-green-400 focus:ring-2 focus:ring-green-400/30 outline-none transition"
+                name="name"
                 placeholder="Full Name"
+                className="w-full p-4 rounded-xl bg-black/40 border border-white/10"
               />
 
               <input
-                className="w-full p-4 rounded-xl bg-black/40 border border-white/10 focus:border-green-400 focus:ring-2 focus:ring-green-400/30 outline-none transition"
+                name="email"
                 placeholder="Email Address"
+                className="w-full p-4 rounded-xl bg-black/40 border border-white/10"
               />
 
               <textarea
-                className="w-full p-4 rounded-xl bg-black/40 border border-white/10 focus:border-green-400 focus:ring-2 focus:ring-green-400/30 outline-none transition"
+                name="message"
                 placeholder="Tell us about your interest..."
                 rows={4}
+                className="w-full p-4 rounded-xl bg-black/40 border border-white/10"
               />
 
-              <button className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-semibold shadow-xl hover:scale-105 transition">
-                Send Message 🚀
+              <button
+                type="submit"
+                disabled={loading}
+                className={`relative w-full py-4 rounded-xl font-semibold 
+  overflow-hidden transition-all duration-300
+  ${
+    loading
+      ? "bg-green-700 cursor-not-allowed"
+      : "bg-gradient-to-r from-green-500 to-emerald-600 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
+  }`}
+              >
+                {/* Background Glow Animation */}
+                {!loading && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-500/20 opacity-0 hover:opacity-100 transition duration-500"></span>
+                )}
+
+                {/* Loader */}
+                {loading ? (
+                  <span className="flex items-center justify-center gap-3">
+                    <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    Sending...
+                  </span>
+                ) : (
+                  "Send Message 🚀"
+                )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </motion.section>
