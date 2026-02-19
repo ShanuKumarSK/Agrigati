@@ -333,7 +333,7 @@ export default function App() {
                 key={i}
                 whileHover={{ scale: 1.1, y: -8 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="relative group p-12 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden"
+                className="relative group p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden"
               >
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-400/10 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition duration-500" />
@@ -342,7 +342,7 @@ export default function App() {
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="h-20 object-contain grayscale group-hover:grayscale-0 transition duration-500"
+                  className="h-24 object-contain group-hover:grayscale-0 transition duration-500"
                 />
 
                 {/* Green Glow Border */}
@@ -352,6 +352,74 @@ export default function App() {
           </div>
         </div>
       </motion.section>
+
+      {/* ================= PARTNERS ================= */}
+      {/* <section className="py-28 px-6 md:px-20 bg-gradient-to-b from-[#0b1120] to-black">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+            Trusted Global Partners
+          </h2>
+
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Collaborating with international agricultural, financial and
+            research institutions to build India's largest digital farming
+            ecosystem.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-10">
+          {[
+            { src: "/partners/Partner1.jpeg", name: "UNDP" },
+            { src: "/partners/Partner2.jpeg", name: "FAO" },
+            { src: "/partners/Partner3.jpeg", name: "ADB" },
+            {
+              src: "/partners/Partner4.png",
+              name: "Modern Commercial Farming",
+            },
+            { src: "/partners/Partner5.png", name: "ICAR" },
+            { src: "/partners/Partner6.jpeg", name: "IRRI" },
+          ].map((partner, i) => (
+            <div
+              key={i}
+              className="group relative rounded-2xl p-[1px] 
+        bg-gradient-to-r from-green-500/40 to-emerald-600/40
+        hover:scale-105 transition duration-300"
+            >
+              <div
+                className="
+        relative h-[100px] sm:h-[120px] md:h-[140px]
+        rounded-2xl bg-white
+        flex items-center justify-center
+        p-6
+        overflow-hidden
+        shadow-xl
+        "
+              >
+                <img
+                  src={partner.src}
+                  alt={partner.name}
+                  className="
+            max-h-full
+            max-w-full
+            object-contain
+            transition duration-500
+            group-hover:scale-110
+            "
+                />
+              </div>
+
+              <div
+                className="
+        absolute inset-0 rounded-2xl
+        opacity-0 group-hover:opacity-100
+        transition duration-500
+        shadow-[0_0_30px_rgba(34,197,94,0.6)]
+        "
+              ></div>
+            </div>
+          ))}
+        </div>
+      </section> */}
 
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
