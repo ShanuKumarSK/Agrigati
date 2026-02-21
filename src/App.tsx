@@ -164,9 +164,9 @@ export default function App() {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section id="features" className="py-32 px-6 md:px-20 relative z-10">
+      <section id="features" className="py-16 md:py-24 px-6 md:px-20 relative z-10">
         {/* Section Heading */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-20">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
             Complete Agri Ecosystem
           </h2>
@@ -232,7 +232,7 @@ export default function App() {
       {/* ================= HOW IT WORKS ================= */}
       <section
         id="about"
-        className="py-32 relative bg-gradient-to-b from-[#0b1120] to-[#0f172a] border-y border-white/10 overflow-hidden"
+        className="py-12 md:py-24 relative bg-gradient-to-b from-[#0b1120] to-[#0f172a] border-y border-white/10 overflow-hidden"
       >
         {/* Background glow */}
         <div className="absolute -left-40 top-20 w-[400px] h-[400px] bg-green-500/10 blur-[120px] rounded-full" />
@@ -301,7 +301,7 @@ export default function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-36 px-6 md:px-20 relative z-10 bg-gradient-to-b from-[#0b1120] to-black"
+        className="py-10 md:py-20 px-6 md:px-20 relative z-10 bg-gradient-to-b from-[#0b1120] to-black"
         id="partners"
       >
         {/* Background Glow Effects */}
@@ -353,81 +353,13 @@ export default function App() {
         </div>
       </motion.section>
 
-      {/* ================= PARTNERS ================= */}
-      {/* <section className="py-28 px-6 md:px-20 bg-gradient-to-b from-[#0b1120] to-black">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-            Trusted Global Partners
-          </h2>
-
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Collaborating with international agricultural, financial and
-            research institutions to build India's largest digital farming
-            ecosystem.
-          </p>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-10">
-          {[
-            { src: "/partners/Partner1.jpeg", name: "UNDP" },
-            { src: "/partners/Partner2.jpeg", name: "FAO" },
-            { src: "/partners/Partner3.jpeg", name: "ADB" },
-            {
-              src: "/partners/Partner4.png",
-              name: "Modern Commercial Farming",
-            },
-            { src: "/partners/Partner5.png", name: "ICAR" },
-            { src: "/partners/Partner6.jpeg", name: "IRRI" },
-          ].map((partner, i) => (
-            <div
-              key={i}
-              className="group relative rounded-2xl p-[1px] 
-        bg-gradient-to-r from-green-500/40 to-emerald-600/40
-        hover:scale-105 transition duration-300"
-            >
-              <div
-                className="
-        relative h-[100px] sm:h-[120px] md:h-[140px]
-        rounded-2xl bg-white
-        flex items-center justify-center
-        p-6
-        overflow-hidden
-        shadow-xl
-        "
-              >
-                <img
-                  src={partner.src}
-                  alt={partner.name}
-                  className="
-            max-h-full
-            max-w-full
-            object-contain
-            transition duration-500
-            group-hover:scale-110
-            "
-                />
-              </div>
-
-              <div
-                className="
-        absolute inset-0 rounded-2xl
-        opacity-0 group-hover:opacity-100
-        transition duration-500
-        shadow-[0_0_30px_rgba(34,197,94,0.6)]
-        "
-              ></div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-36 px-6 md:px-20 bg-gradient-to-b from-black to-[#0b1120] relative z-10"
+        className="py-10 md:py-20 px-6 md:px-20 bg-gradient-to-b from-black to-[#0b1120] relative z-10"
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
@@ -501,7 +433,7 @@ export default function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="pb-36 px-6 md:px-20 bg-gradient-to-b from-[#0b1120] to-black relative z-10"
+        className="py-10 md:py-20 px-6 md:px-20 bg-gradient-to-b from-[#0b1120] to-black relative z-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
@@ -593,7 +525,7 @@ export default function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="py-36 px-6 md:px-20 relative bg-[#0b1120]"
+        className="py-10 md:py-20 px-6 md:px-20 relative bg-[#0b1120]"
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT SIDE CONTENT */}
@@ -677,7 +609,7 @@ export default function App() {
       </motion.section>
 
       {/* ================= PREMIUM CTA ================= */}
-      <section className="relative py-36 text-center overflow-hidden bg-gradient-to-r from-[#064e3b] to-[#022c22]">
+      <section className="relative py-16 md:py-32 text-center overflow-hidden bg-gradient-to-r from-[#064e3b] to-[#022c22]">
         {/* Animated Glow Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.3),transparent_70%)] animate-pulse" />
 
