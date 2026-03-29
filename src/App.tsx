@@ -50,17 +50,22 @@ export default function App() {
 
           {/* DESKTOP */}
           <div className="hidden md:flex items-center gap-8 text-gray-300">
-            {["about", "features", "services", "partners", "contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item}`}
-                  className="hover:text-green-400 transition capitalize"
-                >
-                  {item}
-                </a>
-              ),
-            )}
+            {[
+              "about",
+              "features",
+              "partners",
+              "services",
+              "team",
+              "contact"
+            ].map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="hover:text-green-400 transition capitalize"
+              >
+                {item}
+              </a>
+            ))}
 
             <button
               onClick={() => setShowModal(true)}
@@ -86,7 +91,12 @@ export default function App() {
         {/* MOBILE DROPDOWN */}
         {mobileOpen && (
           <div className="md:hidden w-full bg-black border-t border-white/10 px-6 py-6 space-y-6 text-center">
-            {["about", "features", "services", "partners", "contact"].map(
+            {["about",
+              "features",
+              "partners",
+              "services",
+              "team",
+              "contact"].map(
               (item) => (
                 <a
                   key={item}
@@ -163,6 +173,72 @@ export default function App() {
         </div>
       </section>
 
+      {/* ================= HOW IT WORKS ================= */}
+      <section
+        id="about"
+        className="py-12 md:py-24 relative bg-gradient-to-b from-[#0b1120] to-[#0f172a] border-y border-white/10 overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -left-40 top-20 w-[400px] h-[400px] bg-green-500/10 blur-[120px] rounded-full" />
+        <div className="absolute -right-40 bottom-20 w-[400px] h-[400px] bg-emerald-400/10 blur-[120px] rounded-full" />
+
+        <div className="relative z-10 text-center px-6 md:px-20">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+            How Agrigati Works
+          </h2>
+
+          <p className="max-w-3xl mx-auto text-gray-400 mb-20 leading-relaxed">
+            Agrigati simplifies agriculture by combining land discovery, AI
+            advisory, mandi intelligence and verified service providers into one
+            seamless digital workflow. From registration to real farm impact —
+            everything happens inside one powerful ecosystem.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {[
+              {
+                step: "01",
+                title: "Create Your Agri Profile",
+                desc: "Farmers, landowners, and service providers register and build verified profiles. Add land details, crop information and service listings with geo-location tagging.",
+              },
+              {
+                step: "02",
+                title: "Access Smart Agriculture Tools",
+                desc: "Discover farmland, check live mandi prices, consult AI for crop diagnosis, and connect with verified machinery & finance providers — all in one dashboard.",
+              },
+              {
+                step: "03",
+                title: "Increase Productivity & Income",
+                desc: "Make data-driven decisions using AI insights, optimize crop selling through mandi intelligence, and reduce dependency on middlemen for higher profit margins.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-green-400/40 transition-all duration-500 hover:-translate-y-3 shadow-xl hover:shadow-green-500/20"
+              >
+                {/* Step Number */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center text-lg font-bold shadow-lg group-hover:scale-110 transition">
+                  {item.step}
+                </div>
+
+                <div className="mt-12">
+                  <h3 className="text-2xl font-semibold text-green-400 mb-4">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-green-500/10 to-emerald-500/10 blur-xl" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================= FEATURES ================= */}
       <section
         id="features"
@@ -229,72 +305,6 @@ export default function App() {
               </p>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* ================= HOW IT WORKS ================= */}
-      <section
-        id="about"
-        className="py-12 md:py-24 relative bg-gradient-to-b from-[#0b1120] to-[#0f172a] border-y border-white/10 overflow-hidden"
-      >
-        {/* Background glow */}
-        <div className="absolute -left-40 top-20 w-[400px] h-[400px] bg-green-500/10 blur-[120px] rounded-full" />
-        <div className="absolute -right-40 bottom-20 w-[400px] h-[400px] bg-emerald-400/10 blur-[120px] rounded-full" />
-
-        <div className="relative z-10 text-center px-6 md:px-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-            How Agrigati Works
-          </h2>
-
-          <p className="max-w-3xl mx-auto text-gray-400 mb-20 leading-relaxed">
-            Agrigati simplifies agriculture by combining land discovery, AI
-            advisory, mandi intelligence and verified service providers into one
-            seamless digital workflow. From registration to real farm impact —
-            everything happens inside one powerful ecosystem.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-12 relative">
-            {[
-              {
-                step: "01",
-                title: "Create Your Agri Profile",
-                desc: "Farmers, landowners, and service providers register and build verified profiles. Add land details, crop information and service listings with geo-location tagging.",
-              },
-              {
-                step: "02",
-                title: "Access Smart Agriculture Tools",
-                desc: "Discover farmland, check live mandi prices, consult AI for crop diagnosis, and connect with verified machinery & finance providers — all in one dashboard.",
-              },
-              {
-                step: "03",
-                title: "Increase Productivity & Income",
-                desc: "Make data-driven decisions using AI insights, optimize crop selling through mandi intelligence, and reduce dependency on middlemen for higher profit margins.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-green-400/40 transition-all duration-500 hover:-translate-y-3 shadow-xl hover:shadow-green-500/20"
-              >
-                {/* Step Number */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center text-lg font-bold shadow-lg group-hover:scale-110 transition">
-                  {item.step}
-                </div>
-
-                <div className="mt-12">
-                  <h3 className="text-2xl font-semibold text-green-400 mb-4">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-green-500/10 to-emerald-500/10 blur-xl" />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
