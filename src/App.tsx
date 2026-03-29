@@ -164,7 +164,10 @@ export default function App() {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section id="features" className="py-16 md:py-24 px-6 md:px-20 relative z-10">
+      <section
+        id="features"
+        className="py-16 md:py-24 px-6 md:px-20 relative z-10"
+      >
         {/* Section Heading */}
         <div className="text-center mb-20">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
@@ -517,6 +520,110 @@ export default function App() {
           </div>
         </div>
       </motion.section>
+
+      {/* ================= OUR TEAM ================= */}
+      <section
+        id="team"
+        className="py-12 md:py-24 relative bg-gradient-to-b from-[#0f172a] to-[#0b1120] border-b border-white/10 overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -left-40 top-20 w-[400px] h-[400px] bg-green-500/10 blur-[120px] rounded-full" />
+        <div className="absolute -right-40 bottom-20 w-[400px] h-[400px] bg-emerald-400/10 blur-[120px] rounded-full" />
+
+        <div className="relative z-10 text-center px-6 md:px-20 max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeUp}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+              Our Team
+            </h2>
+            <p className="max-w-3xl mx-auto text-gray-400 mb-20 leading-relaxed">
+              Meet the visionary leaders driving AgriGati's mission to transform
+              agriculture through technology, innovation, and global expertise.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {[
+              {
+                name: "Dr. Shailendra P. Singh",
+                role: "Founder & Principal, AgriGati (LendenX)",
+                image: "/ourTeam/dr-shailendra.jpeg",
+                bio: "A distinguished agricultural scientist and global investment strategist with over 38 years of experience driving large-scale rural transformation. Holding a Ph.D. in Agricultural Sciences alongside dual Master's degrees in Economics and Environmental Science, Dr. Singh bridges the gap between technical agronomy and global economic policy. His career spans more than 20 countries across South and Central Asia, Eastern Europe, and Africa. He has held high-level roles—including Chief Technical Advisor, Vice President, and International Consultant—for premier multilateral organizations such as the United Nations, The World Bank, and the Asian Development Bank (ADB). At AgriGati, he leverages his deep expertise to scale Indian agritech innovations into international markets.",
+              },
+              {
+                name: "Nitin Pal",
+                role: "CTO & Co-founder, AgriGati (LendenX)",
+                image: "/ourTeam/nitin-pal.jpeg",
+                bio: "A product enthusiast and technology leader with over two decades of experience across start-ups and Fortune 100 companies, driving digital transformation and building scalable, user-centric solutions across global markets. He holds a Master's degree in Information Science from Uppsala University, Sweden. Currently based in Stockholm, he is focused on developing digital infrastructure and enabling financial access within the agriculture ecosystem. His international experience spans consulting engagements with leading organizations such as Williams Lea Tag (UK), Toyota Financial Services (Sydney), and Fuji Xerox (Singapore). With a strong blend of product thinking, business strategy, and hands-on execution, he is focused on building impactful, scalable solutions at the intersection of technology, finance, and agriculture.",
+              },
+              {
+                name: "Daya Shankar Lal",
+                role: "Co-founder & COO",
+                bio: "A visionary leader bringing operational excellence and strategic direction to AgriGati. With deep expertise in scaling operations and building sustainable business models, Daya Shankar Lal plays a crucial role in translating AgriGati's mission into actionable strategies and ensuring seamless execution across all functions.",
+              },
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.8, delay: index * 0.15 },
+                  },
+                }}
+                viewport={{ once: true }}
+                className="group relative"
+              >
+                <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-green-400/40 transition-all duration-500 hover:shadow-lg hover:shadow-green-500/20 h-full flex flex-col">
+                  {/* Profile Icon/Image */}
+                  <div className="mb-6 flex justify-center">
+                    {(index === 0 || index === 1) && member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="relative w-24 h-24 rounded-full object-cover shadow-lg group-hover:scale-110 transition-transform duration-500 border-2 border-green-400/30"
+                      />
+                    ) : (
+                      <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-5xl font-bold text-white shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        {member.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Name */}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                    {member.name}
+                  </h3>
+
+                  {/* Role */}
+                  <p className="text-green-400 text-sm md:text-base font-semibold mb-4">
+                    {member.role}
+                  </p>
+
+                  {/* Bio with fixed height and scrolling */}
+                  <div className="flex-grow flex flex-col mb-6">
+                    <p className="text-gray-300 text-sm leading-relaxed text-left overflow-y-auto h-48 pr-2 scrollbar-thin scrollbar-thumb-green-400/30 scrollbar-track-white/5">
+                      {member.bio}
+                    </p>
+                  </div>
+
+                  {/* Bottom accent line */}
+                  <div className="mt-auto pt-6 border-t border-white/10 group-hover:border-green-400/30 transition-colors">
+                    <div className="h-1 w-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ================= CONTACT ================= */}
       <motion.section
