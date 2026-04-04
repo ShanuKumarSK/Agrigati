@@ -573,7 +573,8 @@ export default function App() {
               {
                 name: "Daya Shankar Lal",
                 role: "Co-founder & COO",
-                bio: "A visionary leader bringing operational excellence and strategic direction to AgriGati. With deep expertise in scaling operations and building sustainable business models, Daya Shankar Lal plays a crucial role in translating AgriGati's mission into actionable strategies and ensuring seamless execution across all functions.",
+                image: "/ourTeam/daya.jpeg",
+                bio: "An experienced agriculture professional with over 37 years of distinguished service in the Government of Tamil Nadu, having served as Joint Director of Agriculture. Holding an M.Sc. in Agriculture and an MBA, he brings deep expertise in both technical and administrative aspects of agricultural development. His work has extensively covered precision farming, micro-irrigation systems, polyhouse and greenhouse cultivation, pandal cultivation, hybrid vegetable production, and metro vegetable cultivation initiatives in Tamil Nadu. He has also contributed significantly to natural farming practices, Natural Resource Management (NRM), and watershed development programs. In addition, he has led initiatives in seed certification, seed testing, and hybrid seed production while overseeing the implementation of various government agricultural schemes. With vast experience in organizing government meetings, seminars, Kisan Melas, and coordinating with multiple government and sister departments, he plays a key role in strengthening AgriGati’s operational and field-level agricultural strategies.",
               },
             ].map((member, index) => (
               <motion.div
@@ -594,7 +595,7 @@ export default function App() {
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-green-400/40 transition-all duration-500 hover:shadow-lg hover:shadow-green-500/20 h-full flex flex-col">
                   {/* Profile Icon/Image */}
                   <div className="mb-6 flex justify-center">
-                    {(index === 0 || index === 1) && member.image ? (
+                    {member.image ? (
                       <img
                         src={member.image}
                         alt={member.name}
