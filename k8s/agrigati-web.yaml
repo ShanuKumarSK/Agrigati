@@ -22,7 +22,7 @@ spec:
         - name: agrisetu
       containers:
         - name: agrigati-web
-          image: registry.digitalocean.com/agrisetu/agrigati-web:latest
+          image: ghcr.io/shanukumarsk/agrigati-web:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
