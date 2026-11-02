@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PrivacyPolicy from "./PrivacyPolicy";
+import DeleteAccount from "./DeleteAccount";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -16,6 +18,33 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Standalone privacy policy route (e.g. https://agrigati.com/privacy
+  // for Google Play store listing). Nginx falls back to index.html,
+  // so a direct load of /privacy lands here.
+  if (
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/privacy")
+  ) {
+    return (
+      <main className="relative bg-[#0b1120] text-white overflow-x-hidden">
+        <PrivacyPolicy />
+      </main>
+    );
+  }
+
+  // Self-service account deletion (mobile + OTP). Required for Google Play
+  // Data Safety compliance: https://agrigati.com/delete-account
+  if (
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/delete-account")
+  ) {
+    return (
+      <main className="relative bg-[#0b1120] text-white overflow-x-hidden">
+        <DeleteAccount />
+      </main>
+    );
+  }
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -785,6 +814,16 @@ export default function App() {
               <li>Partners</li>
               <li>Careers</li>
               <li>Contact</li>
+              <li>
+                <a href="/privacy" className="hover:text-green-400 transition">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/delete-account" className="hover:text-green-400 transition">
+                  Delete Account
+                </a>
+              </li>
             </ul>
           </div>
 
